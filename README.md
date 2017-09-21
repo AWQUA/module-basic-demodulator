@@ -1,1 +1,11 @@
 # module-basic-demodulator
+
+### This repo contains the schematic and board layout for a simple demodulator. What do we mean by that? As Wikipedia notes, a demodulator is "an electronic circuit...that is used to recover the information content from [a] modulated carrier wave." Consider a typical TV remote -- it encodes signals in pulses of infrared light to communicate with with the TV. But the environment the remote is in might have other sources of infrared light, so how is the TV able to "listen to" the remote while ignoring ambient IR light signals?
+
+### The simple answer is that the TV remote encodes its signals (which are perhaps in the range of 1KHz) with a carrier wave (typically in the range of 34KHz to 56KHz). In turn, the TV filters the signal that its photodiode receives, removing from the signal both frequencies below and above the range of the remote signals (again, ~1KHz for this example).
+
+### We at AWQUA don't worry too much about remote controls, but we are very interested in precision optical sensing application in environments with shifting ambient light conditions -- like monitoring turbidity in surface water. So we put together this basic demodulator board, which combines a passive band-pass filter (passive high-pass and low-pass filters in series) with a full-wave rectifier and smoothing capacitor.
+
+### The board is designed to be flexible -- allowing surface-mount or through-hole components -- while saving you much of the hassle of breadboarding this circuit. Please note that there are no prescribed values for the passive components. Calculators for the filters can be found at http://sim.okawa-denshi.jp/en/CRlowkeisan.htm and http://sim.okawa-denshi.jp/en/CRhikeisan.htm. The smoothing capacitor can have any value; a larger capacitor will have greater smoothing capability but slower discharge curve.
+
+### To help you test things out in software rather before testing with hardware, we've also included a SPICE model of the circuit (designed in LTSPICE IV).
